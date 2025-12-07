@@ -1,0 +1,615 @@
+{% extends 'emergency/base.html' %}
+
+{% block title %}Emergency Guidelines - Campus Emergency{% endblock %}
+
+{% block content %}
+<div class="space-y-12">
+    <div class="relative overflow-hidden rounded-3xl navbar-glass p-12 lg:p-16 animate-fade-in-up border border-white/30 shadow-2xl">
+
+        <div class="absolute inset-0 overflow-hidden">
+      
+            <div class="floating-orb orb-1"></div>
+            <div class="floating-orb orb-2"></div>
+            <div class="floating-orb orb-3"></div>
+            <div class="floating-orb orb-4"></div>
+            
+            <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-red-500/10 to-transparent rounded-full transform rotate-45 animate-rotate-3d"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-orange-500/10 to-transparent rounded-lg transform -rotate-12 animate-pulse-soft"></div>
+        </div>
+        
+        <div class="relative z-10 transform-gpu perspective-1000">
+            <div class="text-center lg:text-left transform hover:rotateX-2 hover:rotateY-1 transition-transform duration-700 ease-out">
+
+                <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-4 lg:space-y-0 mb-8">
+                    <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-8">
+             
+                        <div class="relative group">
+                            <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-soft"></div>
+                            <div class="relative bg-gradient-to-br from-red-500 via-red-600 to-orange-500 p-8 rounded-3xl shadow-2xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 perspective-1000">
+                                <div class="absolute inset-2 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl"></div>
+                                <i class="fas fa-exclamation-triangle text-white text-4xl relative z-10 drop-shadow-lg animate-pulse"></i>
+                                <div class="absolute inset-0 border-4 border-white/30 rounded-3xl animate-ping"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <h1 class="text-4xl lg:text-6xl font-black tracking-tight">
+                                <span class="inline-block bg-gradient-to-r from-slate-800 via-red-600 to-orange-600 bg-clip-text text-transparent animate-slide-in-right animation-delay-200 hover:scale-105 transition-transform duration-300 cursor-default">
+                                    Emergency
+                                </span>
+                                <br class="lg:hidden">
+                                <span class="inline-block bg-gradient-to-r from-red-600 via-orange-500 to-yellow-600 bg-clip-text text-transparent animate-slide-in-right animation-delay-400 hover:scale-105 transition-transform duration-300 cursor-default">
+                                    Guidelines
+                                </span>
+                            </h1>
+                            
+                            <p class="text-xl lg:text-2xl text-slate-600 font-medium animate-fade-in-up animation-delay-600">
+                                <span class="inline-block hover:text-red-600 transition-colors duration-300">Prepare</span>
+                                <span class="inline-block mx-2 text-red-500">•</span>
+                                <span class="inline-block hover:text-orange-600 transition-colors duration-300">Respond</span>
+                                <span class="inline-block mx-2 text-orange-500">•</span>
+                                <span class="inline-block hover:text-yellow-600 transition-colors duration-300">Stay Safe</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in-up animation-delay-300">
+                        <a href="{% url 'emergency:student_dashboard' %}" class="btn-3d bg-gradient-to-r from-primary-500 via-primary-600 to-teal-500 hover:from-primary-600 hover:via-primary-700 hover:to-teal-600 text-white font-black py-4 px-6 rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-110 hover:-translate-y-2 transition-all duration-500 flex items-center space-x-3 group">
+                            <div class="bg-white/20 p-2 rounded-xl group-hover:scale-125 group-hover:-rotate-12 transition-all duration-500">
+                                <i class="fas fa-arrow-left text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-lg font-black">BACK TO</div>
+                                <div class="text-sm font-medium opacity-90">Dashboard</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-white/60 via-red-50/50 to-orange-50/50 backdrop-blur-sm rounded-2xl p-6 border border-white/40 transform hover:scale-[1.02] transition-all duration-500 animate-fade-in-up animation-delay-800">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="group cursor-pointer">
+                            <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                911
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">Emergency Number</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-orange-600 to-orange-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                24/7
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">Campus Security</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="flex items-center justify-center space-x-2">
+                                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                                <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                    READY
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">Emergency Response</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute inset-0 overflow-hidden opacity-20">
+            <svg class="absolute inset-0 w-full h-full">
+                <defs>
+                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.3" />
+                        <stop offset="50%" style="stop-color:#f97316;stop-opacity:0.5" />
+                        <stop offset="100%" style="stop-color:#eab308;stop-opacity:0.3" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,50 Q250,10 500,50 T1000,50" stroke="url(#flowGradient)" stroke-width="2" fill="none" class="animate-pulse-soft"/>
+                <path d="M0,100 Q300,60 600,100 T1200,100" stroke="url(#flowGradient)" stroke-width="1.5" fill="none" class="animate-pulse-soft animation-delay-1000"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="animate-fade-in-up animation-delay-300">
+        <div class="navbar-glass rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-1">
+            <div class="bg-gradient-to-r from-red-500 via-red-600 to-orange-500 text-white p-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse-soft"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black flex items-center space-x-4 mb-2">
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl transform hover:rotate-12 transition-transform duration-500">
+                            <i class="fas fa-bolt text-yellow-300 drop-shadow-lg"></i>
+                        </div>
+                        <span class="drop-shadow-lg">1. Immediate Response (A–C–T)</span>
+                    </h2>
+                    <p class="text-white/90 font-medium text-lg drop-shadow-sm">Critical first steps in any emergency situation</p>
+                </div>
+                <div class="floating-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                </div>
+            </div>
+            
+            <div class="p-8 navbar-glass backdrop-blur-xl">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-red-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group transform-gpu perspective-1000">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                <i class="fas fa-phone text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-black text-red-700 text-xl">CALL – Life Safety</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-slate-700 font-medium">• Log the emergency or call <strong class="text-red-600">911</strong> for external authority.</p>
+                            <div class="bg-red-50/50 rounded-xl p-4 border border-red-200">
+                                <h4 class="font-bold text-red-800 mb-2">Priority Actions:</h4>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>• Stay calm and speak clearly</li>
+                                    <li>• Don't hang up until told to do so</li>
+                                    <li>• Follow dispatcher instructions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-orange-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group transform-gpu perspective-1000">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                <i class="fas fa-bullhorn text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-black text-orange-700 text-xl">REPORT – Clarity</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-slate-700 font-medium">• State <strong class="text-orange-600">WHAT</strong> (type of emergency), <strong class="text-orange-600">WHERE</strong> (building/room), and <strong class="text-orange-600">WHO</strong> you are.</p>
+                            <div class="bg-orange-50/50 rounded-xl p-4 border border-orange-200">
+                                <h4 class="font-bold text-orange-800 mb-2">Information to Provide:</h4>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>• Nature of emergency</li>
+                                    <li>• Exact location</li>
+                                    <li>• Number of people involved</li>
+                                    <li>• Your name and callback number</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-yellow-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group transform-gpu perspective-1000">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                <i class="fas fa-shield-alt text-white text-xl"></i>
+                            </div>
+                            <h3 class="font-black text-yellow-700 text-xl">DO NOT – Safety</h3>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-slate-700 font-medium">• Do <strong class="text-yellow-600">not</strong> use elevators during a fire or earthquake.<br>• Do <strong class="text-yellow-600">not</strong> re-enter a building until officially cleared.</p>
+                            <div class="bg-yellow-50/50 rounded-xl p-4 border border-yellow-200">
+                                <h4 class="font-bold text-yellow-800 mb-2">Safety Restrictions:</h4>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>• Never ignore evacuation alarms</li>
+                                    <li>• Don't attempt rescue unless trained</li>
+                                    <li>• Avoid compromised areas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-fade-in-up animation-delay-500">
+        <div class="navbar-glass rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-1">
+            <div class="bg-gradient-to-r from-primary-600 via-primary-700 to-teal-600 text-white p-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
+                <div class="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse-soft"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black flex items-center space-x-4 mb-2">
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl transform hover:rotate-12 transition-transform duration-500">
+                            <i class="fas fa-running text-primary-200 drop-shadow-lg"></i>
+                        </div>
+                        <span class="drop-shadow-lg">2. Emergency Scenarios (Run, Hide, Fight)</span>
+                    </h2>
+                    <p class="text-white/90 font-medium drop-shadow-sm">Specific response protocols for different emergency types</p>
+                </div>
+                <div class="floating-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                </div>
+            </div>
+            
+            <div class="p-8 navbar-glass backdrop-blur-xl space-y-8">
+                <div class="navbar-glass bg-gradient-to-r from-white/80 to-red-50/50 backdrop-blur-sm rounded-2xl p-8 border border-red-200/50 hover:shadow-xl transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 group">
+                    <div class="flex items-start space-x-6">
+                        <div class="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i class="fas fa-fire text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-black text-red-700 text-2xl mb-4 flex items-center space-x-2">
+                                <span>🚒 Fire / Fire Alarm</span>
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <h4 class="font-bold text-slate-800 text-lg mb-3">Immediate Action</h4>
+                                    <ul class="space-y-3 text-slate-700 font-medium">
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-hand text-white text-xs"></i>
+                                            </div>
+                                            <span><strong class="text-red-600">PULL</strong> the nearest fire alarm station</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-door-closed text-white text-xs"></i>
+                                            </div>
+                                            <span>Close doors behind you</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-walking text-white text-xs"></i>
+                                            </div>
+                                            <span>Crawl low under smoke</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="font-bold text-slate-800 text-lg mb-3">Evacuation Protocol</h4>
+                                    <ul class="space-y-3 text-slate-700 font-medium">
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-running text-white text-xs"></i>
+                                            </div>
+                                            <span><strong class="text-orange-600">EVACUATE</strong> immediately via nearest safe exit</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-ban text-white text-xs"></i>
+                                            </div>
+                                            <span>Do not use elevators</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-map-marker-alt text-white text-xs"></i>
+                                            </div>
+                                            <span>Go to designated assembly area</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-glass bg-gradient-to-r from-white/80 to-purple-50/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-200/50 hover:shadow-xl transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 group">
+                    <div class="flex items-start space-x-6">
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i class="fas fa-shield text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-black text-purple-700 text-2xl mb-4 flex items-center space-x-2">
+                                <span>🛑 Active Threat / Shooter</span>
+                            </h3>
+                            <div class="grid md:grid-cols-3 gap-6">
+                                <div class="bg-green-50/50 rounded-xl p-4 border border-green-200">
+                                    <h4 class="font-bold text-green-700 text-lg mb-3 flex items-center space-x-2">
+                                        <i class="fas fa-running text-green-600"></i>
+                                        <span>RUN</span>
+                                    </h4>
+                                    <p class="text-slate-700 font-medium">If a safe path is clear, evacuate immediately. Help others escape if possible.</p>
+                                </div>
+                                <div class="bg-yellow-50/50 rounded-xl p-4 border border-yellow-200">
+                                    <h4 class="font-bold text-yellow-700 text-lg mb-3 flex items-center space-x-2">
+                                        <i class="fas fa-eye-slash text-yellow-600"></i>
+                                        <span>HIDE</span>
+                                    </h4>
+                                    <p class="text-slate-700 font-medium">If escape is blocked: lock/barricade doors, turn off lights, silence phones, stay low and quiet.</p>
+                                </div>
+                                <div class="bg-red-50/50 rounded-xl p-4 border border-red-200">
+                                    <h4 class="font-bold text-red-700 text-lg mb-3 flex items-center space-x-2">
+                                        <i class="fas fa-fist-raised text-red-600"></i>
+                                        <span>FIGHT</span>
+                                    </h4>
+                                    <p class="text-slate-700 font-medium">Only as a last resort. Act with physical aggression and use improvised weapons.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-glass bg-gradient-to-r from-white/80 to-green-50/50 backdrop-blur-sm rounded-2xl p-8 border border-green-200/50 hover:shadow-xl transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 group">
+                    <div class="flex items-start space-x-6">
+                        <div class="bg-gradient-to-br from-green-500 to-green-600 p-4 rounded-2xl shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                            <i class="fas fa-heart text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-black text-green-700 text-2xl mb-4 flex items-center space-x-2">
+                                <span>⚕️ Medical Emergency</span>
+                            </h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <h4 class="font-bold text-slate-800 text-lg mb-3">Immediate Actions</h4>
+                                    <ul class="space-y-3 text-slate-700 font-medium">
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-search text-white text-xs"></i>
+                                            </div>
+                                            <span><strong class="text-green-600">ASSESS</strong> the scene for safety</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-phone text-white text-xs"></i>
+                                            </div>
+                                            <span><strong class="text-green-600">CALL</strong> Campus Emergency / 911</span>
+                                        </li>
+                                        <li class="flex items-start space-x-3">
+                                            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                                                <i class="fas fa-hand-holding-heart text-white text-xs"></i>
+                                            </div>
+                                            <span>Provide <strong class="text-green-600">First Aid/CPR</strong> if trained</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="space-y-4">
+                                    <h4 class="font-bold text-slate-800 text-lg mb-3">Safety Guidelines</h4>
+                                    <div class="bg-green-50/50 rounded-xl p-4 border border-green-200">
+                                        <p class="text-slate-700 font-medium mb-3">Do not move the injured person unless they are in immediate danger</p>
+                                        <div class="text-sm text-slate-600 space-y-1">
+                                            <div>• Keep person calm and still</div>
+                                            <div>• Monitor breathing and pulse</div>
+                                            <div>• Control bleeding if present</div>
+                                            <div>• Wait for professional help</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-fade-in-up animation-delay-700">
+        <div class="navbar-glass rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-1">
+            <div class="bg-gradient-to-r from-teal-600 via-teal-700 to-cyan-600 text-white p-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
+                <div class="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse-soft"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-black flex items-center space-x-4 mb-2">
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl transform hover:rotate-12 transition-transform duration-500">
+                            <i class="fas fa-bullhorn text-teal-200 drop-shadow-lg"></i>
+                        </div>
+                        <span class="drop-shadow-lg">3. Communication & Accountability</span>
+                    </h2>
+                    <p class="text-white/90 font-medium drop-shadow-sm">Essential coordination and follow-up procedures</p>
+                </div>
+            </div>
+            
+            <div class="p-8 navbar-glass backdrop-blur-xl">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-teal-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                    <i class="fas fa-bell text-white"></i>
+                                </div>
+                                <h3 class="font-black text-teal-700 text-xl">Alert System</h3>
+                            </div>
+                            <p class="text-slate-700 font-medium">Respond immediately to sirens, loudspeakers, texts, or email notifications.</p>
+                        </div>
+                        
+                        <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-primary-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <h3 class="font-black text-primary-700 text-xl">Evacuation</h3>
+                            </div>
+                            <p class="text-slate-700 font-medium">Go directly to the pre-designated <strong class="text-primary-600">Assembly Area</strong>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-green-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <h3 class="font-black text-green-700 text-xl">Accountability</h3>
+                            </div>
+                            <p class="text-slate-700 font-medium">Report to your <strong class="text-green-600">supervisor/warden</strong> for roll call. Stay until officially released.</p>
+                        </div>
+                        
+                        <div class="navbar-glass bg-white/60 rounded-2xl p-6 border border-purple-200/50 hover:shadow-xl transition-all duration-700 hover:scale-105 hover:-translate-y-2 group">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                                    <i class="fas fa-info text-white"></i>
+                                </div>
+                                <h3 class="font-black text-purple-700 text-xl">Information</h3>
+                            </div>
+                            <p class="text-slate-700 font-medium">Follow <strong class="text-purple-600">all instructions</strong> from Emergency Response Teams or external authorities (Police, Fire, EMS).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-fade-in-up animation-delay-900">
+        <div class="navbar-glass rounded-3xl p-10 border border-white/40 bg-gradient-to-br from-white/90 via-red-50/20 to-orange-50/30 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-1">
+            <div class="text-center">
+                <h2 class="font-black text-slate-800 text-3xl mb-8 flex items-center justify-center space-x-4">
+                    <div class="bg-gradient-to-br from-red-500 to-orange-500 p-4 rounded-2xl shadow-xl animate-float transform hover:scale-110 hover:rotate-6 transition-all duration-500">
+                        <i class="fas fa-phone text-white text-2xl drop-shadow-lg"></i>
+                    </div>
+                    <span>📞 Emergency Contacts</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-white/80 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 group">
+                        <div class="text-3xl font-black text-red-600 mb-2 group-hover:scale-110 transition-transform duration-300">911</div>
+                        <div class="text-sm text-slate-600 font-medium">Life-Threatening Emergencies</div>
+                        <div class="text-xs text-slate-500 mt-2">Fire • Medical • Police</div>
+                    </div>
+                    <div class="bg-white/80 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 group">
+                        <div class="text-lg font-black text-primary-600 mb-2 group-hover:scale-110 transition-transform duration-300">(555) 123-4567</div>
+                        <div class="text-sm text-slate-600 font-medium">Campus Security</div>
+                        <div class="text-xs text-slate-500 mt-2">24/7 Campus Safety</div>
+                    </div>
+                    <div class="bg-white/80 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 group">
+                        <div class="text-lg font-black text-green-600 mb-2 group-hover:scale-110 transition-transform duration-300">(555) 123-4568</div>
+                        <div class="text-sm text-slate-600 font-medium">Health Services</div>
+                        <div class="text-xs text-slate-500 mt-2">Medical Support</div>
+                    </div>
+                    <div class="bg-white/80 rounded-2xl p-6 hover:shadow-xl transition-all duration-500 hover:scale-105 group">
+                        <div class="text-lg font-black text-purple-600 mb-2 group-hover:scale-110 transition-transform duration-300">(555) 123-4571</div>
+                        <div class="text-sm text-slate-600 font-medium">Crisis Hotline</div>
+                        <div class="text-xs text-slate-500 mt-2">Mental Health Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .animation-delay-200 { animation-delay: 0.2s; }
+    .animation-delay-300 { animation-delay: 0.3s; }
+    .animation-delay-400 { animation-delay: 0.4s; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+    .animation-delay-600 { animation-delay: 0.6s; }
+    .animation-delay-700 { animation-delay: 0.7s; }
+    .animation-delay-800 { animation-delay: 0.8s; }
+    .animation-delay-900 { animation-delay: 0.9s; }
+    .animation-delay-1000 { animation-delay: 1s; }
+    
+    .floating-orb {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, rgba(249, 115, 22, 0.05) 50%, transparent 70%);
+        animation: floatOrb 20s ease-in-out infinite;
+        backdrop-filter: blur(20px);
+    }
+    .orb-1 { width: 200px; height: 200px; top: -50px; left: 10%; animation-delay: 0s; }
+    .orb-2 { width: 150px; height: 150px; top: 20%; right: 15%; animation-delay: 7s; }
+    .orb-3 { width: 120px; height: 120px; bottom: 10%; left: 20%; animation-delay: 14s; }
+    .orb-4 { width: 180px; height: 180px; bottom: -30%; right: 10%; animation-delay: 3s; }
+    
+    @keyframes floatOrb {
+        0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+        25% { transform: translateY(-20px) translateX(10px) scale(1.1); }
+        50% { transform: translateY(-10px) translateX(-15px) scale(0.9); }
+        75% { transform: translateY(-30px) translateX(5px) scale(1.05); }
+    }
+    
+    .btn-3d {
+        transform-style: preserve-3d;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-3d:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .floating-particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        animation: floatParticle 15s linear infinite;
+    }
+    
+    .particle-1 { top: 20%; left: 20%; animation-delay: 0s; }
+    .particle-2 { top: 60%; right: 30%; animation-delay: 5s; }
+    .particle-3 { bottom: 30%; left: 60%; animation-delay: 10s; }
+    
+    @keyframes floatParticle {
+        0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
+    }
+    
+    .transform-gpu {
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+    
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+    
+    .hover\:rotateX-1:hover {
+        transform: perspective(1000px) rotateX(1deg);
+    }
+    
+    @keyframes rotate3d {
+        0% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+        25% { transform: perspective(1000px) rotateY(5deg) rotateX(2deg); }
+        50% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+        75% { transform: perspective(1000px) rotateY(-5deg) rotateX(-2deg); }
+        100% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotateX(0deg); }
+        50% { transform: translateY(-12px) rotateX(3deg); }
+    }
+    
+    @keyframes pulse-soft {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+    }
+    
+    .animate-pulse-soft {
+        animation: pulse-soft 2s ease-in-out infinite;
+    }
+    
+    .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .animate-slide-in-right {
+        animation: slideInRight 0.8s ease-out forwards;
+    }
+    
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .animate-rotate-3d {
+        animation: rotate3d 4s ease-in-out infinite;
+    }
+    
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+</style>
+{% endblock %}

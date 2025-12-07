@@ -1,0 +1,487 @@
+{% extends 'emergency/base.html' %}
+
+{% block title %}Admin Dashboard - Campus Emergency{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <div class="relative overflow-hidden rounded-3xl navbar-glass p-12 lg:p-16 animate-fade-in-up border border-white/30 shadow-2xl">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-8 left-12 w-20 h-20 bg-gradient-to-br from-primary-4[00/30 to-teal-400/30 rounded-full blur-xl animate-float animation-delay-0"></div>
+            <div class="absolute top-16 right-20 w-16 h-16 bg-gradient-to-br from-purple-400/20 to-primary-400/20 rounded-full blur-lg animate-float animation-delay-1000"></div>
+            <div class="absolute bottom-12 left-32 w-24 h-24 bg-gradient-to-br from-teal-400/25 to-purple-400/25 rounded-full blur-2xl animate-float animation-delay-2000"></div>
+            
+            <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full transform rotate-45 animate-rotate-3d"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-teal-500/10 to-transparent rounded-lg transform -rotate-12 animate-pulse-soft"></div>
+        </div>
+        
+        <div class="relative z-10 transform-gpu perspective-1000">
+            <div class="text-center lg:text-left transform hover:rotateX-2 hover:rotateY-1 transition-transform duration-700 ease-out">
+                <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-start space-y-4 lg:space-y-0 lg:space-x-8 mb-8">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-teal-500 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-soft"></div>
+                        <div class="relative bg-gradient-to-br from-primary-500 via-primary-600 to-teal-500 p-8 rounded-3xl shadow-2xl transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-700 perspective-1000">
+                            <div class="absolute inset-2 bg-gradient-to-br from-white/20 to-white/5 rounded-2xl"></div>
+                            <i class="fas fa-shield-alt text-white text-4xl relative z-10 drop-shadow-lg animate-rotate-3d"></i>
+
+                            <div class="absolute inset-0 border-4 border-white/30 rounded-3xl animate-ping"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h1 class="text-4xl lg:text-6xl font-black tracking-tight">
+                            <span class="inline-block bg-gradient-to-r from-slate-800 via-primary-600 to-teal-600 bg-clip-text text-transparent animate-slide-in-right animation-delay-200 hover:scale-105 transition-transform duration-300 cursor-default">
+                                Command
+                            </span>
+                            <br class="lg:hidden">
+                            <span class="inline-block bg-gradient-to-r from-primary-600 via-teal-500 to-purple-600 bg-clip-text text-transparent animate-slide-in-right animation-delay-400 hover:scale-105 transition-transform duration-300 cursor-default">
+                                Center
+                            </span>
+                        </h1>
+                        
+                        <p class="text-xl lg:text-2xl text-slate-600 font-medium animate-fade-in-up animation-delay-600">
+                            <span class="inline-block hover:text-primary-600 transition-colors duration-300">Real-time</span>
+                            <span class="inline-block mx-2 text-primary-500">•</span>
+                            <span class="inline-block hover:text-teal-600 transition-colors duration-300">Intelligent</span>
+                            <span class="inline-block mx-2 text-teal-500">•</span>
+                            <span class="inline-block hover:text-purple-600 transition-colors duration-300">Responsive</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-white/60 via-primary-50/50 to-teal-50/50 backdrop-blur-sm rounded-2xl p-6 border border-white/40 transform hover:scale-[1.02] transition-all duration-500 animate-fade-in-up animation-delay-800">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div class="group cursor-pointer">
+                            <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                {{ stats.total_incidents|default:"0" }}
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">Active Cases</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                98%
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">Success Rate</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-teal-600 to-teal-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                15m
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">Avg Response</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="flex items-center justify-center space-x-2">
+                                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                                <div class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                                    LIVE
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-600 font-medium uppercase tracking-wider">System Status</div>
+                            <div class="mt-2 w-full h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 overflow-hidden opacity-20">
+            <svg class="absolute inset-0 w-full h-full">
+                <defs>
+                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.3" />
+                        <stop offset="50%" style="stop-color:#14b8a6;stop-opacity:0.5" />
+                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,50 Q250,10 500,50 T1000,50" stroke="url(#flowGradient)" stroke-width="2" fill="none" class="animate-pulse-soft"/>
+                <path d="M0,100 Q300,60 600,100 T1200,100" stroke="url(#flowGradient)" stroke-width="1.5" fill="none" class="animate-pulse-soft animation-delay-1000"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="animate-fade-in-up animation-delay-400">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div class="navbar-glass rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-2xl hover:-translate-y-4 hover:rotateX-12 hover:rotateY-6 group border border-white/40 transform-gpu perspective-1000 bg-gradient-to-br from-white/90 to-primary-50/30">
+                <div class="bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotateZ-12 group-hover:shadow-2xl transition-all duration-700 shadow-lg transform-gpu">
+                    <i class="fas fa-exclamation-triangle text-2xl drop-shadow-lg"></i>
+                </div>
+                <h3 class="text-3xl font-black bg-gradient-to-r from-slate-800 to-primary-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">{{ stats.total_incidents }}</h3>
+                <p class="text-slate-600 font-bold text-sm uppercase tracking-wider">Total Incidents</p>
+                <div class="mt-4 w-full h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-200"></div>
+            </div>
+
+            <div class="navbar-glass rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-2xl hover:-translate-y-4 hover:rotateX-12 hover:rotateY-6 group border border-white/40 transform-gpu perspective-1000 bg-gradient-to-br from-white/90 to-red-50/30">
+                <div class="bg-gradient-to-br from-red-500 to-red-600 text-white rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotateZ-12 group-hover:shadow-2xl transition-all duration-700 shadow-lg transform-gpu">
+                    <i class="fas fa-fire text-2xl drop-shadow-lg"></i>
+                </div>
+                <h3 class="text-3xl font-black bg-gradient-to-r from-slate-800 to-red-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">{{ stats.fire_incidents }}</h3>
+                <p class="text-slate-600 font-bold text-sm uppercase tracking-wider">Fire Incidents</p>
+                <div class="mt-4 w-full h-1 bg-gradient-to-r from-red-500 to-red-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-200"></div>
+            </div>
+
+            <div class="navbar-glass rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-2xl hover:-translate-y-4 hover:rotateX-12 hover:rotateY-6 group border border-white/40 transform-gpu perspective-1000 bg-gradient-to-br from-white/90 to-green-50/30">
+                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotateZ-12 group-hover:shadow-2xl transition-all duration-700 shadow-lg transform-gpu">
+                    <i class="fas fa-heart text-2xl drop-shadow-lg"></i>
+                </div>
+                <h3 class="text-3xl font-black bg-gradient-to-r from-slate-800 to-green-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">{{ stats.health_incidents }}</h3>
+                <p class="text-slate-600 font-bold text-sm uppercase tracking-wider">Health Incidents</p>
+                <div class="mt-4 w-full h-1 bg-gradient-to-r from-green-500 to-green-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-200"></div>
+            </div>
+
+            <div class="navbar-glass rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-2xl hover:-translate-y-4 hover:rotateX-12 hover:rotateY-6 group border border-white/40 transform-gpu perspective-1000 bg-gradient-to-br from-white/90 to-teal-50/30">
+                <div class="bg-gradient-to-br from-teal-500 to-teal-600 text-white rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotateZ-12 group-hover:shadow-2xl transition-all duration-700 shadow-lg transform-gpu">
+                    <i class="fas fa-users text-2xl drop-shadow-lg"></i>
+                </div>
+                <h3 class="text-3xl font-black bg-gradient-to-r from-slate-800 to-teal-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">{{ stats.social_incidents }}</h3>
+                <p class="text-slate-600 font-bold text-sm uppercase tracking-wider">Social Incidents</p>
+                <div class="mt-4 w-full h-1 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-200"></div>
+            </div>
+
+            <div class="navbar-glass rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-2xl hover:-translate-y-4 hover:rotateX-12 hover:rotateY-6 group border border-white/40 transform-gpu perspective-1000 bg-gradient-to-br from-white/90 to-orange-50/30">
+                <div class="bg-gradient-to-br from-orange-500 to-yellow-500 text-white rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotateZ-12 group-hover:shadow-2xl transition-all duration-700 shadow-lg transform-gpu">
+                    <i class="fas fa-clock text-2xl drop-shadow-lg"></i>
+                </div>
+                <h3 class="text-3xl font-black bg-gradient-to-r from-slate-800 to-orange-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">{{ stats.pending_incidents }}</h3>
+                <p class="text-slate-600 font-bold text-sm uppercase tracking-wider">Pending</p>
+                <div class="mt-4 w-full h-1 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-200"></div>
+            </div>
+
+            <div class="navbar-glass rounded-2xl p-6 text-center transition-all duration-700 hover:shadow-2xl hover:-translate-y-4 hover:rotateX-12 hover:rotateY-6 group border border-white/40 transform-gpu perspective-1000 bg-gradient-to-br from-white/90 to-slate-50/30">
+                <div class="bg-gradient-to-br from-slate-600 to-slate-700 text-white rounded-2xl w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-125 group-hover:rotateZ-12 group-hover:shadow-2xl transition-all duration-700 shadow-lg transform-gpu">
+                    <i class="fas fa-check text-2xl drop-shadow-lg"></i>
+                </div>
+                <h3 class="text-3xl font-black bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-500">{{ stats.resolved_incidents }}</h3>
+                <p class="text-slate-600 font-bold text-sm uppercase tracking-wider">Resolved</p>
+                <div class="mt-4 w-full h-1 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 delay-200"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 animate-fade-in-up animation-delay-500">
+            <div class="navbar-glass rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-2">
+                <div class="bg-gradient-to-r from-primary-600 via-primary-700 to-teal-600 text-white p-8 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse-soft"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-3xl font-black flex items-center space-x-4 mb-2">
+                            <div class="bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl transform hover:rotate-12 transition-transform duration-500">
+                                <i class="fas fa-list text-white text-xl drop-shadow-lg"></i>
+                            </div>
+                            <span class="drop-shadow-lg">Incident Command</span>
+                        </h2>
+                        <p class="text-white/90 font-medium text-lg drop-shadow-sm">Live incident tracking and strategic response coordination</p>
+                    </div>
+                </div>
+                
+                <div class="p-8 navbar-glass backdrop-blur-xl">
+                    {% if incidents %}
+                        <div class="overflow-hidden rounded-2xl border border-white/30 navbar-glass">
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-gradient-to-r from-slate-50/80 to-primary-50/30 border-b-2 border-primary-100/50">
+                                            <th class="text-left p-6 font-black text-slate-700 text-sm uppercase tracking-wider">Incident Intel</th>
+                                            <th class="text-left p-6 font-black text-slate-700 text-sm uppercase tracking-wider">Classification</th>
+                                            <th class="text-left p-6 font-black text-slate-700 text-sm uppercase tracking-wider">Status</th>
+                                            <th class="text-left p-6 font-black text-slate-700 text-sm uppercase tracking-wider">Reporter</th>
+                                            <th class="text-left p-6 font-black text-slate-700 text-sm uppercase tracking-wider">Timeline</th>
+                                            <th class="text-left p-6 font-black text-slate-700 text-sm uppercase tracking-wider">Command</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100/50">
+                                        {% for incident in incidents %}
+                                            <tr class="hover:bg-gradient-to-r hover:from-primary-50/30 hover:to-teal-50/20 transition-all duration-500 border-b border-slate-100/30 group hover:shadow-lg hover:-translate-y-1 transform-gpu">
+                                                <td class="p-6">
+                                                    <div class="space-y-3">
+                                                        <div class="font-black text-slate-800 group-hover:text-primary-600 transition-colors duration-500 text-lg">{{ incident.title }}</div>
+                                                        <div class="text-sm text-slate-500 flex items-center space-x-3 navbar-glass px-4 py-2 rounded-full w-fit border border-white/50">
+                                                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                                                            <i class="fas fa-map-marker-alt text-red-500"></i>
+                                                            <span class="font-medium">{{ incident.location }}</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="p-6">
+                                                    <span class="inline-flex items-center px-4 py-3 rounded-full text-xs font-black uppercase tracking-wider border-2 transition-all duration-500 hover:scale-110 hover:-translate-y-1 transform-gpu
+                                                        {% if incident.category == 'fire' %}bg-gradient-to-r from-red-50/80 to-red-100/80 text-red-800 border-red-200 hover:border-red-400 hover:shadow-lg
+                                                        {% elif incident.category == 'health' %}bg-gradient-to-r from-green-50/80 to-green-100/80 text-green-800 border-green-200 hover:border-green-400 hover:shadow-lg
+                                                        {% elif incident.category == 'social' %}bg-gradient-to-r from-teal-50/80 to-teal-100/80 text-teal-800 border-teal-200 hover:border-teal-400 hover:shadow-lg
+                                                        {% else %}bg-gradient-to-r from-slate-50/80 to-slate-100/80 text-slate-800 border-slate-200 hover:border-slate-400 hover:shadow-lg{% endif %}">
+                                                        <i class="fas fa-{% if incident.category == 'fire' %}fire{% elif incident.category == 'health' %}heart{% elif incident.category == 'social' %}users{% else %}exclamation-triangle{% endif %} mr-2"></i>
+                                                        {{ incident.get_category_display }}
+                                                    </span>
+                                                </td>
+                                                <td class="p-6">
+                                                    <span class="inline-flex items-center px-4 py-3 rounded-full text-xs font-black uppercase tracking-wider border-2 transition-all duration-500 hover:scale-110 hover:-translate-y-1 transform-gpu
+                                                        {% if incident.status == 'reported' %}bg-gradient-to-r from-yellow-50/80 to-orange-100/80 text-orange-800 border-orange-200 hover:border-orange-400 hover:shadow-lg
+                                                        {% elif incident.status == 'in_progress' %}bg-gradient-to-r from-primary-50/80 to-primary-100/80 text-primary-800 border-primary-200 hover:border-primary-400 hover:shadow-lg
+                                                        {% else %}bg-gradient-to-r from-green-50/80 to-green-100/80 text-green-800 border-green-200 hover:border-green-400 hover:shadow-lg{% endif %}">
+                                                        <i class="fas fa-{% if incident.status == 'reported' %}clock{% elif incident.status == 'in_progress' %}spinner{% else %}check{% endif %} mr-2 {% if incident.status == 'in_progress' %}animate-spin{% endif %}"></i>
+                                                        {{ incident.get_status_display }}
+                                                    </span>
+                                                </td>
+                                                <td class="p-6">
+                                                    <div class="flex items-center space-x-4">
+                                                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-teal-500 rounded-2xl flex items-center justify-center text-white font-black text-sm shadow-lg transform hover:scale-110 hover:rotate-6 transition-all duration-300">
+                                                            {{ incident.reporter.first_name.0|default:incident.reporter.username.0|upper }}
+                                                        </div>
+                                                        <span class="text-slate-700 font-bold">{{ incident.reporter.get_full_name|default:incident.reporter.username }}</span>
+                                                    </div>
+                                                </td>
+                                                <td class="p-6">
+                                                    <div class="space-y-1">
+                                                        <div class="text-slate-600 font-bold">{{ incident.created_at|date:"M d, Y" }}</div>
+                                                        <div class="text-slate-400 text-sm font-medium">{{ incident.created_at|date:"g:i A" }}</div>
+                                                    </div>
+                                                </td>
+                                                <td class="p-6">
+                                                    <form method="post" action="{% url 'emergency:update_incident_status' incident.id %}" class="flex items-center space-x-3">
+                                                        {% csrf_token %}
+                                                        <select name="status" class="form-input-modern px-4 py-3 rounded-xl border-2 border-white/50 focus:border-primary-500 focus:ring-4 focus:ring-primary-200 transition-all duration-500 navbar-glass backdrop-blur-sm text-sm font-bold min-w-36 hover:scale-105 transform-gpu">
+                                                            <option value="reported" {% if incident.status == 'reported' %}selected{% endif %}>Reported</option>
+                                                            <option value="in_progress" {% if incident.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                                                            <option value="resolved" {% if incident.status == 'resolved' %}selected{% endif %}>Resolved</option>
+                                                        </select>
+                                                        <button type="submit" class="btn-modern bg-gradient-to-r from-primary-500 to-teal-500 hover:from-primary-600 hover:to-teal-600 text-white px-6 py-3 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-110 hover:-translate-y-1 transition-all duration-500 flex items-center space-x-2 font-bold">
+                                                            <i class="fas fa-save"></i>
+                                                            <span class="hidden sm:block">Execute</span>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-20">
+                            <div class="animate-float mb-8 transform hover:scale-110 transition-transform duration-500">
+                                <div class="w-32 h-32 bg-gradient-to-br from-slate-200 to-primary-300 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                                    <i class="fas fa-shield-check text-6xl text-slate-500"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-black text-slate-600 mb-4">All Clear - Command Center Ready</h3>
+                            <p class="text-slate-500 text-xl font-medium">Monitoring systems active - incident reports will appear here when submitted</p>
+                            <div class="mt-8 w-32 h-1 bg-gradient-to-r from-primary-500 to-teal-500 rounded-full mx-auto"></div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="animate-fade-in-up animation-delay-700">
+            <div class="navbar-glass rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-2">
+                <div class="bg-gradient-to-r from-slate-700 via-primary-600 to-purple-600 text-white p-8 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
+                    <div class="absolute -top-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse-soft"></div>
+                    <div class="relative z-10">
+                        <h2 class="text-2xl font-black flex items-center space-x-4 mb-2">
+                            <div class="bg-white/20 backdrop-blur-sm p-4 rounded-2xl shadow-xl transform hover:rotate-12 transition-transform duration-500">
+                                <i class="fas fa-users text-white drop-shadow-lg"></i>
+                            </div>
+                            <span class="drop-shadow-lg">Command Personnel</span>
+                        </h2>
+                        <p class="text-white/90 font-medium drop-shadow-sm">Active response team directory</p>
+                    </div>
+                </div>
+                
+                <div class="p-6 navbar-glass backdrop-blur-xl max-h-96 overflow-y-auto custom-scrollbar">
+                    <div class="space-y-4">
+                        {% for user in users %}
+                            <div class="navbar-glass bg-gradient-to-r from-white/80 to-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/50 hover:shadow-xl transition-all duration-700 hover:scale-[1.03] hover:-translate-y-2 group transform-gpu perspective-1000 hover:rotateX-3">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="relative">
+                                            <div class="w-14 h-14 bg-gradient-to-br from-primary-500 via-purple-500 to-teal-500 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 transform-gpu">
+                                                {{ user.user.first_name.0|default:user.user.username.0|upper }}
+                                            </div>
+                                            <div class="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-white animate-pulse shadow-lg flex items-center justify-center">
+                                                <div class="w-2 h-2 bg-white rounded-full"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="font-black text-slate-800 group-hover:text-primary-600 transition-colors duration-500 text-lg">
+                                                {{ user.user.get_full_name|default:user.user.username }}
+                                            </div>
+                                            <div class="text-slate-500 font-bold">{{ user.get_role_display }}</div>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center px-4 py-3 rounded-full text-xs font-black uppercase tracking-wider border-2 transition-all duration-500 hover:scale-110 hover:-translate-y-1 transform-gpu
+                                        {% if user.role == 'admin' %}bg-gradient-to-r from-purple-50/80 to-purple-100/80 text-purple-800 border-purple-200 hover:border-purple-400 hover:shadow-lg
+                                        {% elif user.role == 'fire' %}bg-gradient-to-r from-red-50/80 to-red-100/80 text-red-800 border-red-200 hover:border-red-400 hover:shadow-lg
+                                        {% elif user.role == 'health' %}bg-gradient-to-r from-green-50/80 to-green-100/80 text-green-800 border-green-200 hover:border-green-400 hover:shadow-lg
+                                        {% elif user.role == 'social' %}bg-gradient-to-r from-teal-50/80 to-teal-100/80 text-teal-800 border-teal-200 hover:border-teal-400 hover:shadow-lg
+                                        {% else %}bg-gradient-to-r from-primary-50/80 to-primary-100/80 text-primary-800 border-primary-200 hover:border-primary-400 hover:shadow-lg{% endif %}">
+                                        <i class="fas fa-{% if user.role == 'admin' %}crown{% elif user.role == 'fire' %}fire{% elif user.role == 'health' %}heart{% elif user.role == 'social' %}users{% else %}user{% endif %} mr-2"></i>
+                                        {{ user.role|upper }}
+                                    </span>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animate-fade-in-up animation-delay-900">
+        <div class="navbar-glass rounded-3xl p-12 border border-white/40 bg-gradient-to-br from-white/90 via-primary-50/20 to-teal-50/30 backdrop-blur-xl shadow-2xl hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-1">
+            <div class="mb-10">
+                <h3 class="text-4xl font-black bg-gradient-to-r from-slate-800 via-primary-600 to-teal-600 bg-clip-text text-transparent mb-6 flex items-center space-x-6">
+                    <div class="bg-gradient-to-br from-primary-500 to-teal-500 p-6 rounded-3xl shadow-2xl animate-float transform hover:scale-110 hover:rotate-6 transition-all duration-500">
+                        <i class="fas fa-chart-line text-white text-3xl drop-shadow-lg"></i>
+                    </div>
+                    <span>Mission Control Analytics</span>
+                </h3>
+                <p class="text-slate-600 text-xl font-bold">Advanced system monitoring and intelligence dashboard</p>
+                <div class="w-40 h-1 bg-gradient-to-r from-primary-500 to-teal-500 rounded-full mt-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="navbar-glass bg-gradient-to-br from-white/80 to-blue-50/50 backdrop-blur-sm rounded-2xl p-10 hover:shadow-xl transition-all duration-700 hover:scale-110 hover:-translate-y-4 hover:rotateX-6 border border-white/60 transform-gpu perspective-1000 group">
+                    <div class="text-primary-500 text-5xl mb-8">
+                        <div class="bg-gradient-to-br from-primary-500 to-blue-600 p-6 rounded-3xl w-fit mx-auto shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 transform-gpu">
+                            <i class="fas fa-tachometer-alt text-white drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-slate-800 mb-4 text-2xl">Response Matrix</h4>
+                    <p class="text-slate-600 font-bold mb-6">Sub-15min average tactical response</p>
+                    <div class="w-full h-3 navbar-glass rounded-full overflow-hidden border border-primary-200">
+                        <div class="h-full w-4/5 bg-gradient-to-r from-primary-500 to-blue-600 rounded-full animate-pulse-soft shadow-inner"></div>
+                    </div>
+                </div>
+                
+                <div class="navbar-glass bg-gradient-to-br from-white/80 to-green-50/50 backdrop-blur-sm rounded-2xl p-10 hover:shadow-xl transition-all duration-700 hover:scale-110 hover:-translate-y-4 hover:rotateX-6 border border-white/60 transform-gpu perspective-1000 group">
+                    <div class="text-green-500 text-5xl mb-8">
+                        <div class="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-3xl w-fit mx-auto shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 transform-gpu">
+                            <i class="fas fa-percentage text-white drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-slate-800 mb-4 text-2xl">Success Protocol</h4>
+                    <p class="text-slate-600 font-bold mb-6">98% mission completion rate</p>
+                    <div class="w-full h-3 navbar-glass rounded-full overflow-hidden border border-green-200">
+                        <div class="h-full w-full bg-gradient-to-r from-green-500 to-green-600 rounded-full animate-pulse-soft shadow-inner"></div>
+                    </div>
+                </div>
+                
+                <div class="navbar-glass bg-gradient-to-br from-white/80 to-purple-50/50 backdrop-blur-sm rounded-2xl p-10 hover:shadow-xl transition-all duration-700 hover:scale-110 hover:-translate-y-4 hover:rotateX-6 border border-white/60 transform-gpu perspective-1000 group">
+                    <div class="text-purple-500 text-5xl mb-8">
+                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-3xl w-fit mx-auto shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 transform-gpu">
+                            <i class="fas fa-shield-alt text-white drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-slate-800 mb-4 text-2xl">Defense Grid</h4>
+                    <p class="text-slate-600 font-bold mb-6">All defensive systems nominal</p>
+                    <div class="flex items-center space-x-3 mt-6">
+                        <div class="w-4 h-4 bg-green-500 rounded-full animate-pulse shadow-lg"></div>
+                        <span class="text-green-600 font-black text-lg tracking-wider">SECURED</span>
+                    </div>
+                </div>
+                
+                <div class="navbar-glass bg-gradient-to-br from-white/80 to-orange-50/50 backdrop-blur-sm rounded-2xl p-10 hover:shadow-xl transition-all duration-700 hover:scale-110 hover:-translate-y-4 hover:rotateX-6 border border-white/60 transform-gpu perspective-1000 group">
+                    <div class="text-orange-500 text-5xl mb-8">
+                        <div class="bg-gradient-to-br from-orange-500 to-yellow-500 p-6 rounded-3xl w-fit mx-auto shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 transform-gpu">
+                            <i class="fas fa-satellite-dish text-white drop-shadow-lg"></i>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-slate-800 mb-4 text-2xl">Sentinel Network</h4>
+                    <p class="text-slate-600 font-bold mb-6">24/7 tactical surveillance active</p>
+                    <div class="flex items-center space-x-3 mt-6">
+                        <div class="w-4 h-4 bg-orange-500 rounded-full animate-pulse shadow-lg"></div>
+                        <span class="text-orange-600 font-black text-lg tracking-wider">SCANNING</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .animation-delay-0 { animation-delay: 0s; }
+    .animation-delay-200 { animation-delay: 0.2s; }
+    .animation-delay-300 { animation-delay: 0.3s; }
+    .animation-delay-400 { animation-delay: 0.4s; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+    .animation-delay-700 { animation-delay: 0.7s; }
+    .animation-delay-900 { animation-delay: 0.9s; }
+    .animation-delay-1000 { animation-delay: 1s; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    
+    .transform-gpu {
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+    
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+    
+    .hover\:rotateX-12:hover {
+        transform: perspective(1000px) rotateX(12deg);
+    }
+    
+    .hover\:rotateX-6:hover {
+        transform: perspective(1000px) rotateX(6deg);
+    }
+    
+    .hover\:rotateX-3:hover {
+        transform: perspective(1000px) rotateX(3deg);
+    }
+    
+    .hover\:rotateX-2:hover {
+        transform: perspective(1000px) rotateX(2deg);
+    }
+    
+    .hover\:rotateX-1:hover {
+        transform: perspective(1000px) rotateX(1deg);
+    }
+    
+    .hover\:rotateY-6:hover {
+        transform: perspective(1000px) rotateY(6deg);
+    }
+    
+    .hover\:rotateY-1:hover {
+        transform: perspective(1000px) rotateY(1deg);
+    }
+    
+    .hover\:rotateZ-12:hover {
+        transform: rotateZ(12deg);
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(148, 163, 184, 0.1);
+        border-radius: 12px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #0ea5e9, #14b8a6);
+        border-radius: 12px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #0284c7, #0d9488);
+        background-clip: content-box;
+    }
+    
+    @keyframes rotate3d {
+        0% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+        25% { transform: perspective(1000px) rotateY(5deg) rotateX(2deg); }
+        50% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+        75% { transform: perspective(1000px) rotateY(-5deg) rotateX(-2deg); }
+        100% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotateX(0deg); }
+        50% { transform: translateY(-12px) rotateX(3deg); }
+    }
+</style>
+{% endblock %}

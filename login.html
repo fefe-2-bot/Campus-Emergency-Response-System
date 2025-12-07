@@ -1,0 +1,262 @@
+{% extends 'emergency/base.html' %}
+
+{% block title %}Login - Campus Emergency{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+        <div class="floating-orb orb-4"></div>
+        
+
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full transform rotate-45 animate-rotate-3d"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-teal-500/10 to-transparent rounded-lg transform -rotate-12 animate-pulse-soft"></div>
+        
+
+        <svg class="absolute inset-0 w-full h-full opacity-20">
+            <defs>
+                <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:0.3" />
+                    <stop offset="50%" style="stop-color:#14b8a6;stop-opacity:0.5" />
+                    <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+                </linearGradient>
+            </defs>
+            <path d="M0,200 Q400,100 800,200 T1600,200" stroke="url(#flowGradient)" stroke-width="2" fill="none" class="animate-pulse-soft"/>
+            <path d="M0,400 Q500,300 1000,400 T2000,400" stroke="url(#flowGradient)" stroke-width="1.5" fill="none" class="animate-pulse-soft animation-delay-1000"/>
+        </svg>
+    </div>
+
+    <div class="max-w-md w-full space-y-8 animate-fade-in-up relative z-10">
+        <div class="navbar-glass rounded-3xl shadow-2xl overflow-hidden border border-white/40 hover:shadow-3xl transition-all duration-700 hover:-translate-y-2 transform-gpu perspective-1000 hover:rotateX-2">
+            <div class="bg-gradient-to-br from-primary-600 via-primary-700 to-teal-600 px-8 py-16 text-center relative overflow-hidden">
+
+                <div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/5"></div>
+                <div class="floating-particles">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                    <div class="particle particle-5"></div>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="relative group mb-8">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/30 to-white/10 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-soft"></div>
+                        <div class="relative bg-white/20 backdrop-blur-sm rounded-full w-24 h-24 flex items-center justify-center mx-auto shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 perspective-1000">
+                            <div class="absolute inset-2 bg-gradient-to-br from-white/30 to-white/10 rounded-full"></div>
+                            <i class="fas fa-shield-alt text-5xl text-white relative z-10 drop-shadow-2xl animate-rotate-3d"></i>
+ 
+                            <div class="absolute inset-0 border-4 border-white/30 rounded-full animate-ping"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h1 class="text-4xl font-black text-white drop-shadow-2xl animate-fade-in-up">
+                            <span class="inline-block animate-slide-in-right animation-delay-200 hover:scale-105 transition-transform duration-300 cursor-default">
+                                Campus Emergency
+                            </span>
+                        </h1>
+                        <p class="text-primary-100 text-xl font-bold drop-shadow-lg animate-fade-in-up animation-delay-400">
+                            Response System
+                        </p>
+                        <div class="w-16 h-1 bg-gradient-to-r from-white/60 to-white/30 rounded-full mx-auto mt-6 animate-fade-in-up animation-delay-600"></div>
+                    </div>
+                </div>
+                
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse-soft"></div>
+                <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse-soft animation-delay-500"></div>
+            </div>
+            
+            <div class="px-8 py-10 navbar-glass backdrop-blur-xl">
+                <form method="post" class="space-y-8">
+                    {% csrf_token %}
+                    
+                    <div class="form-group space-y-3 animate-fade-in-up animation-delay-700">
+                        <label for="{{ form.username.id_for_label }}" class="block text-sm font-black text-slate-700 flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg transform hover:scale-110 hover:rotate-6 transition-all duration-300">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <span class="uppercase tracking-wider">Username</span>
+                        </label>
+                        <input type="text" 
+                               name="{{ form.username.name }}" 
+                               id="{{ form.username.id_for_label }}" 
+                               class="form-input-3d w-full px-6 py-4 rounded-2xl border-2 border-white/50 focus:border-primary-500 focus:ring-4 focus:ring-primary-200 transition-all duration-500 navbar-glass backdrop-blur-sm hover:scale-[1.02] transform-gpu font-medium text-slate-800 placeholder-slate-400" 
+                               placeholder="Enter your username"
+                               required>
+                    </div>
+                    
+                    <div class="form-group space-y-3 animate-fade-in-up animation-delay-800">
+                        <label for="{{ form.password.id_for_label }}" class="block text-sm font-black text-slate-700 flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl flex items-center justify-center shadow-lg transform hover:scale-110 hover:rotate-6 transition-all duration-300">
+                                <i class="fas fa-lock text-white text-sm"></i>
+                            </div>
+                            <span class="uppercase tracking-wider">Password</span>
+                        </label>
+                        <input type="password" 
+                               name="{{ form.password.name }}" 
+                               id="{{ form.password.id_for_label }}" 
+                               class="form-input-3d w-full px-6 py-4 rounded-2xl border-2 border-white/50 focus:border-primary-500 focus:ring-4 focus:ring-primary-200 transition-all duration-500 navbar-glass backdrop-blur-sm hover:scale-[1.02] transform-gpu font-medium text-slate-800 placeholder-slate-400" 
+                               placeholder="Enter your password"
+                               required>
+                    </div>
+                    
+                    {% if form.errors %}
+                        <div class="navbar-glass bg-gradient-to-r from-red-50/80 to-red-100/60 border-l-4 border-red-400 p-6 rounded-2xl animate-slide-down border border-red-200/50 backdrop-blur-sm">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-exclamation-triangle text-white"></i>
+                                </div>
+                                <div class="text-red-800">
+                                    {% for field, errors in form.errors.items %}
+                                        {% for error in errors %}
+                                            <p class="font-bold">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    <button type="submit" class="btn-3d w-full bg-gradient-to-r from-primary-500 via-primary-600 to-teal-500 hover:from-primary-600 hover:via-primary-700 hover:to-teal-600 text-white font-black py-6 px-8 rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-2 transition-all duration-500 flex items-center justify-center space-x-4 group animate-fade-in-up animation-delay-900">
+                        <div class="bg-white/20 p-2 rounded-xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                            <i class="fas fa-sign-in-alt text-xl group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </div>
+                        <span class="text-xl tracking-wider">SECURE LOGIN</span>
+                    </button>
+                </form>
+                
+                
+            </div>
+        </div>
+        
+        <div class="text-center animate-fade-in-up animation-delay-1100">
+            <div class="navbar-glass bg-gradient-to-r from-white/60 via-primary-50/40 to-teal-50/40 rounded-2xl p-6 border border-white/50 hover:scale-105 transition-all duration-500 transform-gpu perspective-1000 hover:rotateX-2">
+                <div class="flex items-center justify-center space-x-3 text-slate-600">
+                    <div class="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg animate-pulse">
+                        <i class="fas fa-shield-check text-white text-sm"></i>
+                    </div>
+                    <span class="font-bold text-sm uppercase tracking-wider">256-bit SSL Encryption Protected</span>
+                </div>
+                <div class="mt-2 text-xs text-slate-500 font-medium">Your login credentials are secured with military-grade encryption</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .animation-delay-200 { animation-delay: 0.2s; }
+    .animation-delay-400 { animation-delay: 0.4s; }
+    .animation-delay-500 { animation-delay: 0.5s; }
+    .animation-delay-600 { animation-delay: 0.6s; }
+    .animation-delay-700 { animation-delay: 0.7s; }
+    .animation-delay-800 { animation-delay: 0.8s; }
+    .animation-delay-900 { animation-delay: 0.9s; }
+    .animation-delay-1000 { animation-delay: 1s; }
+    .animation-delay-1100 { animation-delay: 1.1s; }
+    
+    .floating-orb {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, rgba(20, 184, 166, 0.05) 50%, transparent 70%);
+        animation: floatOrb 20s ease-in-out infinite;
+        backdrop-filter: blur(20px);
+    }
+    .orb-1 { width: 300px; height: 300px; top: 10%; left: 10%; animation-delay: 0s; }
+    .orb-2 { width: 200px; height: 200px; top: 60%; right: 15%; animation-delay: 7s; }
+    .orb-3 { width: 150px; height: 150px; bottom: 20%; left: 20%; animation-delay: 14s; }
+    .orb-4 { width: 250px; height: 250px; bottom: 10%; right: 10%; animation-delay: 3s; }
+    
+    @keyframes floatOrb {
+        0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+        25% { transform: translateY(-30px) translateX(20px) scale(1.1); }
+        50% { transform: translateY(-15px) translateX(-25px) scale(0.9); }
+        75% { transform: translateY(-40px) translateX(15px) scale(1.05); }
+    }
+    
+    .form-input-3d {
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-input-3d:focus {
+        transform: translateZ(8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .form-group {
+        transform-style: preserve-3d;
+    }
+    
+    .btn-3d {
+        transform-style: preserve-3d;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-3d:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+    
+    .floating-particles {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    
+    .particle {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        animation: floatParticle 20s linear infinite;
+    }
+    
+    .particle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+    .particle-2 { top: 40%; right: 20%; animation-delay: 4s; }
+    .particle-3 { bottom: 30%; left: 25%; animation-delay: 8s; }
+    .particle-4 { top: 60%; right: 30%; animation-delay: 12s; }
+    .particle-5 { bottom: 50%; left: 70%; animation-delay: 16s; }
+    
+    @keyframes floatParticle {
+        0% { transform: translateY(0px) translateX(0px); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-120px) translateX(60px); opacity: 0; }
+    }
+    
+    .transform-gpu {
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+    
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+    
+    .hover\:rotateX-2:hover {
+        transform: perspective(1000px) rotateX(2deg);
+    }
+    
+    @keyframes rotate3d {
+        0% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+        25% { transform: perspective(1000px) rotateY(3deg) rotateX(1deg); }
+        50% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+        75% { transform: perspective(1000px) rotateY(-3deg) rotateX(-1deg); }
+        100% { transform: perspective(1000px) rotateY(0deg) rotateX(0deg); }
+    }
+    
+    @keyframes pulse-soft {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+    }
+    
+    .animate-pulse-soft {
+        animation: pulse-soft 3s ease-in-out infinite;
+    }
+</style>
+{% endblock %}
